@@ -1,0 +1,53 @@
+{% extends 'main/layout.html' %}
+{% block title %}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/main/css/form.css">
+<link rel="stylesheet" href="/static/main/css/main.css">
+<link rel="stylesheet" href="/static/main/css/detail-view.css">
+{% endblock %}
+
+{% block body %}
+
+<style>
+
+    .form1{
+        width: 200px;
+        background: #bfc4c7;
+        outline: 2px solid #000;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        margin-left: 600px;
+    }
+    .column-center{
+        width: 55%;
+
+
+
+    }
+</style>
+<!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
+
+<header id="top" xmlns="http://www.w3.org/1999/html">
+            <div class="column-left">
+                <i class="fas fa-clipboard-list fa-3x" ></i>
+            </div>
+            <div class="column-center">
+                <h1>Заявка</h1>
+            </div>
+            <div class="column-right">
+                <a href="{% url 'main' %}"><button class="button1">На главную</button></a>
+            </div>
+</header>
+<!--        КОНТЕЙНЕР формы-->
+        <div class="serviceInfo">
+            <h1>{{ service.name }}</h1><br>
+            <p>{{ service.tel }}</p><br>
+            <p>{{ service.type_work }}</p><br>
+            <p>{{ service.date }}</p><br>
+            <p>{{ service.time }}</p><br>
+            <a href="{% url 'updateInfo' service.id %}"><button class="button1">редактировать</button></a>
+            <a href="{% url 'deleteInfo' service.id %}"><button class="button1">удалить</button></a>
+        </div>
+
+
+{% endblock %}

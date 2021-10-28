@@ -1,0 +1,123 @@
+{% extends 'main/layout.html' %}
+{% block title %} Главная {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/main/css/main.css">
+{% endblock %}
+{% block body %}
+<!--        Кнопка скролла вверх-->
+        <div><a href="#top" class="idTop">ВВЕРХ</a></div>
+<!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
+
+        <header id="top">
+            <div class="column-left">
+                <img class="brend-title" src="static/main/img/logo.png" alt="сергей">
+            </div>
+            <div class="column-center">
+            <nav class="menu-title">
+                    <a class="nav_link" href="#link1">Услуги</a>
+                    <a class="nav_link" href="#link2">О нас</a>
+                    <a class="nav_link" href="#link3">Контакты</a>
+                </nav>
+            </div>
+            <div class="column-right">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'personalAccount' %}"><button class="button1">Личный кабинет</button></a>
+                    <a href="{% url 'exit' %}"><button class="button1">Выйти</button></a>
+                {%else%}
+                    <a href="{% url 'logout' %}"><button class="button1">Войти</button></a>
+                {% endif %}
+
+
+
+
+            </div>
+        </header>
+
+<!--        КОНТЕЙНЕР Телефон -->
+        <div class="baner-phone">
+            <div class="phone">
+                <form method="post">
+                    {% csrf_token %}
+                    <h1> Оставьте заявку </h1>
+                    <p>мы свяжемся с вами</p>
+                    <div class="input">
+<!--                        {{ form.as_p }}-->
+                        {{ form.name }}
+                        {{ form.tel }}
+                        <span>{{ error }}</span>
+                    </div>
+<!--                    <button class="button2" type="submit">оставить заявку</button>-->
+                    <a href="{% url 'contact' %}"><button class="button2" type="submit">оставить заявку</button></a>
+                </form>
+                {% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
+            </div>
+        </div>
+
+<!--        КОНТЕЙНЕР НАШИ УСЛУГИ-->
+
+    <div id="link1" class="baner-work">
+
+            <div class="box-title"><h2>Услуги</h2></div>
+            <a href="{% url 'form' %}">
+            <div class="tr-block" >
+
+                <h2>Раздел: ДВС</h2>
+                <h3>Ремонт двс</h3>
+                <ul>
+                    <li>чистка форсунок</li>
+                    <li>удаление егр</li>
+                    <li>плановое то</li>
+                </ul>
+
+
+            </div></a>
+            <a href="{% url 'form' %}">
+            <div class="tr-block">
+                <h2>Раздел: ТРАНСМИССИЯ</h2>
+<!--                <img src="static/main/img/s01.jpg" alt="">-->
+                <h3>Ремонт трансмиссии</h3>
+                <ul>
+                    <li>замена сцепления</li>
+                    <li>замена масла в кпп</li>
+                    <li>замена масла в редукторе</li>
+                </ul>
+            </div></a>
+            <a href="{% url 'form' %}">
+            <div class="tr-block">
+                <h2>Раздел: КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</h2>
+                <h3>Диагностика</h3>
+               <ul>
+                    <li>диагностика всего авто</li>
+                    <li>диагностика отдельных узлов</li>
+                    <li>перепрошивка б.у.</li>
+               </ul>
+            </div></a>
+            <a href="{% url 'form' %}">
+            <div class="tr-block">
+                <h2>Раздел: КУЗОВНОЙ РЕМОНТ</h2>
+                <h3>Кузовной ремонт</h3>
+                <ul>
+                    <li>покраска одного элемента</li>
+                    <li>полировка фар</li>
+                    <li>полировка кузова</li>
+                </ul>
+            </div></a>
+    </div>
+
+<!--        КОНТЕЙНЕР О НАС-->
+        <div class="baner-txt">
+            <div id="link2" class="box-title"><h2>О нас</h2></div>
+
+                <div class="txt">
+                    <p>Наш автосервис в Минске успешно выполняет техобслуживание различных моделей BMW с 2011 года. BMW Service Minsk специализируется на всех моделях БМВ.</p>
+                    <p>Современное оборудование и опытные специалисты помогут провести диагностику, выявить неисправность и устранить поломку любой сложности в различных узлах. BMW Service Minsk выполнит профессиональное техобслуживание автомобиля и восстановит работоспособность всех систем в Минске. Просторный бокс на 2 подъемника.</p>
+                    <p>Будем рады Вам!</p>
+                </div>
+            <img src="static/main/img/about-car.png" alt="">
+        </div>
+{% endblock %}
+
+        
+        

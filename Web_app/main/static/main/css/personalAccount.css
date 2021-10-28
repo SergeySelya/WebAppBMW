@@ -1,0 +1,20 @@
+.blockInfo{
+    width: 200px;
+    height: auto;
+    background: #bfc4c7;
+    outline: 2px solid #000;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+.blockInfo {
+    float:left;
+    clear:both;
+    width:400px;
+    margin: 20px 34%;
+    text-align: left;
+    }
+.serviceInfo {
+    height: 900px;
+    width: 1250px;
+    text-align: center;
+    }

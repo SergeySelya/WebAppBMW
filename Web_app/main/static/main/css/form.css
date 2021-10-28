@@ -1,0 +1,26 @@
+/*Описание блока заполнения заявки*/
+    .form1{
+        height: auto;
+        width: auto;
+        padding-left: 360px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+    }
+
+
+
+.form1 form{
+    margin-left: 20%;
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+    text-align: center;
+
+/*Описание иконки верхней шапки(form)*/
+}
+i.fas.fa-clipboard-list{
+    color:#7a8989;
+    padding-top: 20px;
+}
+
