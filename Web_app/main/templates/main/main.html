@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body %}
 <!--        Кнопка скролла вверх-->
-        <div><a href="#top" class="idTop">ВВЕРХ</a></div>
+        <div><a href="#top" class="idTop"></a></div>
 <!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
 
         <header id="top">
@@ -34,26 +34,31 @@
         </header>
 
 <!--        КОНТЕЙНЕР Телефон -->
-        <div class="baner-phone">
-            <div class="phone">
+<a href="#register" class="button3" >Мы свяжемся с вами!</a>
+
+<div id="register" class="modalDialog">
+	<div>
+		<a href="#close" title="Закрыть" class="close">X</a>
+
+        <div class="phone">
                 <form method="post">
                     {% csrf_token %}
                     <h1> Оставьте заявку </h1>
                     <p>мы свяжемся с вами</p>
                     <div class="input">
-<!--                        {{ form.as_p }}-->
                         {{ form.name }}
                         {{ form.tel }}
                         <span>{{ error }}</span>
                     </div>
-<!--                    <button class="button2" type="submit">оставить заявку</button>-->
                     <a href="{% url 'contact' %}"><button class="button2" type="submit">оставить заявку</button></a>
                 </form>
                 {% for message in messages %}
 					<p id="messages">{{message}}</p>
 				{% endfor %}
             </div>
-        </div>
+
+	</div>
+</div>
 
 <!--        КОНТЕЙНЕР НАШИ УСЛУГИ-->
 
