@@ -17,33 +17,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ContactForm
 
 
-# Отправка сообщения на mail
 
-
-def contact_view(request):
-
-    # если метод GET, вернем форму
-    if request.method == 'GET':
-        form = ContactForm()
-    elif request.method == 'POST':
-        # если метод POST, проверим форму и отправим письмо
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            tel = form.cleaned_data['tel']
-            try:
-                send_mail(name, tel,
-                          'elhom99@gmail.com', ['elhom99@gmail.com'])
-            except BadHeaderError:
-                return HttpResponse('Ошибка в теме письма.')
-            return redirect('success')
-    else:
-        return HttpResponse('Неверный запрос.')
-    return render(request, "email.html", {'form': form})
-
-
-def success_view(request):
-    return HttpResponse('Приняли! Спасибо за вашу заявку.')
 
 # Для личного кабинета поиск удаление и редактирование записей
 class checkInfo(DetailView):
@@ -114,7 +88,7 @@ def exit(request):
     logout(request)
     return redirect('main')
 
-
+# Оправить заявку на звонок
 def main(request):
     error = ''
     if request.method == "POST":
@@ -126,11 +100,18 @@ def main(request):
             try:
                 send_mail(f"Заявка от {name}", str(tel),
                           'elhom99@gmail.com', ['elhom99@gmail.com'])
-                messages.info(request, 'Наш оператор свяжется с вами в течении 5 минут')
+                form = ArticlesForm()
+                data = {
+                    'form': form,
+                    'var': 1
+                }
+                return render(request, 'main/main.html', data)
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
         else:
             messages.info(request, 'Форма была неверной')
+            return redirect('http://127.0.0.1:8000/#register')
+
 
     form = ArticlesForm()
     data = {
@@ -139,6 +120,16 @@ def main(request):
 
     }
     return render(request, 'main/main.html', data)
+
+#Окно сообщения
+# def message(request):
+#     form = ArticlesForm(request.POST)
+#     if form.is_valid():
+#         messages.info(request, 'Ваша заявка одобренно, с вами свяжется наш менеджер!')
+#         return render(request, 'main/main.html', {'var': 1})
+#     else:
+#         messages.info(request, 'Форма была неверной')
+#         return redirect('http://127.0.0.1:8000/#register')
 
 # запись на услугу
 def form1(request):

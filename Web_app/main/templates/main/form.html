@@ -34,7 +34,13 @@
                         <input type="hidden" name="login" value="{{ request.user.id }}" />
                         {{ form.name }}<br><br>
                         {{ form.tel }}<br><br>
-                        {{ form.type_work }}<br><br>
+<!--                        {{ form.type_work }}<br><br>-->
+                        <select name="type_work" value="{{ form.type_work }}">
+                            <option value="1">ДВС</option>
+                            <option value="2">Трансмиссия</option>
+                            <option value="3">Компьютерная диагностика</option>
+                            <option value="4">Кузовной ремонт</option>
+                        </select><br><br>
                         {{ form.date }}<br><br>
                         {{ form.time }}<br><br>
 

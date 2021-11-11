@@ -1,16 +1,29 @@
 {% extends 'main/layout.html' %}
 {% block title %} Главная {% endblock %}
 {% block head %}
-<link rel="stylesheet" href="/static/main/css/main.css">
+<link rel="stylesheet" href="static/main/css/main.css">
+<link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 {% endblock %}
 {% block body %}
+<!--        Окно сообщения о отправленной заявке-->
+<div class="messages">
+                {% if var == 1 %}
+                    <div class="n-success">
+    	                <p>Ваша заявка одобрена , наш оператор свжется с вами в ближайшее время!</p>
+                    </div>
+
+                {%else%}
+
+                {% endif %}
+</div>
+
 <!--        Кнопка скролла вверх-->
         <div><a href="#top" class="idTop"></a></div>
 <!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
 
         <header id="top">
             <div class="column-left">
-                <img class="brend-title" src="static/main/img/logo.png" alt="сергей">
+                <img class="brend-title" src="/static/main/img/logo.png" alt="сергей">
             </div>
             <div class="column-center">
             <nav class="menu-title">
@@ -38,10 +51,10 @@
 
 <div id="register" class="modalDialog">
 	<div>
-		<a href="#close" title="Закрыть" class="close">X</a>
+		<a href="#close" title="Закрыть" class="close"></a>
 
         <div class="phone">
-                <form method="post">
+                <form method="post" action="{% url 'main' %}">
                     {% csrf_token %}
                     <h1> Оставьте заявку </h1>
                     <p>мы свяжемся с вами</p>
@@ -50,7 +63,8 @@
                         {{ form.tel }}
                         <span>{{ error }}</span>
                     </div>
-                    <a href="{% url 'contact' %}"><button class="button2" type="submit">оставить заявку</button></a>
+                    <a><button class="button2" type="submit">оставить заявку</button></a>
+
                 </form>
                 {% for message in messages %}
 					<p id="messages">{{message}}</p>
@@ -60,13 +74,17 @@
 	</div>
 </div>
 
+
+
 <!--        КОНТЕЙНЕР НАШИ УСЛУГИ-->
 
     <div id="link1" class="baner-work">
 
-            <div class="box-title"></div>
+            <div class="box-title">
             <a href="{% url 'form' %}">
-            <div class="tr-block" >
+
+            <div class="tr-block" style="background: url(/static/main/img/01.jpg) no-repeat;
+        object-fit: cover;" >
 
                 <h2>Раздел: ДВС</h2>
                 <h3>Ремонт двс</h3>
@@ -76,10 +94,11 @@
                     <li>плановое то</li>
                 </ul>
 
-
             </div></a>
+
             <a href="{% url 'form' %}">
-            <div class="tr-block">
+            <div class="tr-block" style="background: url(/static/main/img/02.jpg) no-repeat;
+        object-fit: cover;">
                 <h2>Раздел: ТРАНСМИССИЯ</h2>
 <!--                <img src="static/main/img/s01.jpg" alt="">-->
                 <h3>Ремонт трансмиссии</h3>
@@ -90,7 +109,8 @@
                 </ul>
             </div></a>
             <a href="{% url 'form' %}">
-            <div class="tr-block">
+            <div class="tr-block" style="background: url(/static/main/img/03.jpg) no-repeat;
+        object-fit: cover;">
                 <h2>Раздел: КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</h2>
                 <h3>Диагностика</h3>
                <ul>
@@ -109,6 +129,7 @@
                     <li>полировка кузова</li>
                 </ul>
             </div></a>
+                </div>
     </div>
 
 <!--        КОНТЕЙНЕР О НАС-->
@@ -120,8 +141,12 @@
                     <p>Современное оборудование и опытные специалисты помогут провести диагностику, выявить неисправность и устранить поломку любой сложности в различных узлах. BMW Service Minsk выполнит профессиональное техобслуживание автомобиля и восстановит работоспособность всех систем в Минске. Просторный бокс на 2 подъемника.</p>
                     <p>Будем рады Вам!</p>
                 </div>
-            <img src="static/main/img/about-car.png" alt="">
+            <img src="/static/main/img/about-car.png" alt="">
         </div>
+
+
+
+
 {% endblock %}
 
         

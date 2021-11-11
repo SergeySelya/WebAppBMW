@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Уведомление!</title>
+	<link rel="stylesheet" href="/static/main/css/main.css">
+	<link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+.center{
+height:400px;
+}
+	.n-success{
+    margin: 25px;
+    padding: 12px 12px 12px 37px;
+    color: #333;
+    border-radius: 2px;
+    background: #fff;
+    position: relative;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    box-sizing: border-box;
+}
+.n-success:before{
+    content: "";
+    background: inherit;
+    color: inherit;
+    border: inherit;
+    display: block;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 48px;
+    position: absolute;
+    left: -25px;
+    box-sizing: border-box;
+    font-family: "FontAwesome";
+    font-size: 22px;
+}
+.n-success {
+    border: 2px solid #32a846;
+    color: #32a846;
+}
+.n-success:before {
+    content: "\f00c";
+}
+
+
+</style>
+
+
+<!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
+
+        <header id="top">
+            <div class="column-left">
+                <img class="brend-title" src="../static/main/img/logo.png" alt="сергей">
+            </div>
+            <div class="column-center">
+            </div>
+            <div class="column-right">
+				<a href="{% url 'main' %}"><button class="button1">На главную</button></a>
+            </div>
+        </header>
+
+<!--окно сообщения-->
+<div class="center">
+	<div class="n-success">
+    	<p>Ваша заявка одобрена , наш оператор свжется с вами в ближайшее время!</p>
+	</div>
+</div>
+</body>
+</html>
+
+

@@ -1,6 +1,49 @@
+/*Окно уведомления после отправки телефона и имени*/
+
+	.n-success{
+	width:100px;
+height:120px;
+ position: fixed; /*позиционирование кнопки фиксированное*/
+ z-index: 9999; /*отображаем поверх всех элементов*/
+ bottom: 20%; /*положение снизу*/
+ right: 5%; /*положение справа*/
+ opacity: .6; /*прозрачность*/
+ padding: 10px; /*внутренние отступы*/
+ margin: 5px 15px 15px 5px; /*внешние отступы*/
+
+    color: #333;
+    border-radius: 2px;
+    background: #fff;
+    font-weight: bold;
+    font-family: Verdana, sans-serif;
+    box-sizing: border-box;
+    border: 2px solid #32a846;
+    color: #32a846;
+
+}
+
+.messages{
+opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+transition: 1s; /*Скорость перехода состояния элемента*/
+animation: show 7s 1; /* Указываем название анимации, её время и количество повторов*/
+animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+animation-delay: 0s; /* Задержка перед началом */
+}
+@keyframes show{
+0%{
+opacity:0;
+}
+80%{
+opacity:1;
+}
+100% {
+opacity:0;
+}
+}
+
 /*карты*/
 .map {
-    padding: 0px 70px;
+    padding: 0px 10px;
     text-align: center;
 }
 
@@ -33,14 +76,16 @@ h2 {
     to {
         width:0;
         height:0;
-        overflow:hidden;
+        opacity: 0;
+
     }
 }
 @-webkit-keyframes cssAnimation {
     to {
         width:0;
         height:0;
-        visibility:hidden;
+        opacity: 0;
+
     }
 }
 
@@ -50,19 +95,26 @@ h2 {
   }
 
 /* анимация услуг*/
+.box-title{
+
+}
+
 .tr-block {
-text-align: left;
+
+        text-align: left;
         position: relative;
         display: inline-block;
         vertical-align: top;
         cursor: pointer;
-        width: 320px;
-        min-height: 220px;
-        background-color: #CEE0AD;
-        color: #646665;
+        width: 434px;
+        min-height: 171px;
 
-        padding: 10px;
-        margin: 15px;
+
+        background-color: #CEE0AD;
+        color: #030202fd;
+        padding:12px;
+
+        margin: 29px;
         border: 2px solid #ccc;
         outline: 2px solid #ccc;
         outline-offset: 3px;
@@ -70,13 +122,13 @@ text-align: left;
     }
 .tr-block h2 {
        position: absolute;
-       color: #313538;
+       color: #1c1c1cfd;
        text-shadow: 1px 1px 1px #fbfbfb;
        transition: opacity .4s cubic-bezier(.29, -0.32, .68, .41);
     }
 .tr-block:hover h2 { opacity: 0;  }
 .tr-block h3 {
-       color: #646665;
+       color: #1c1c1cfd;
        transform: translate(-110%);
        transition: transform .5s;
     }
@@ -215,25 +267,47 @@ a.button3:hover {
 	background: -o-linear-gradient(#fff, #999);
 }
 .close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    padding: 0;
+    border: 2px solid #ccc;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    background-color: rgba(61, 61, 61, 0.8);
+    -webkit-box-shadow: 0px 0px 10px #000;
+    -moz-box-shadow: 0px 0px 10px #000;
+    box-shadow: 0px 0px 10px #000;
+    text-align: center;
+    text-decoration: none;
+    font: 13px/20px 'Tahoma', Arial, sans-serif;
+    font-weight: bold;
+    -webkit-transition: all ease .8s;
+    -moz-transition: all ease .8s;
+    -ms-transition: all ease .8s;
+    -o-transition: all ease .8s;
+    transition: all ease .8s;
+}
+.close:before {
+    color: rgba(255, 255, 255, 0.9);
+    content: "X";
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+    font-size: 12px;
 }
 
-.close:hover { background: #00d9ff; }
+.close:hover {
+ background-color: rgba(252, 20, 0, 0.8);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+ }
 
 
 
@@ -281,10 +355,10 @@ a.button3:hover {
 
     width: 1100px;
     height: 550px;
-    margin: 0px 90px;
+    margin: 0px 15%;
     padding-top: 50px;
     padding-bottom: 100px;
-    padding-left: 15%;
+
 
 }
 .img{
@@ -327,9 +401,9 @@ a.button3:hover {
 
 /*НИЖНЯЯ ШАПКА*/
 .under-body{
-    padding-top: 50px;
+    padding-top: 30px;
     width: auto;
-    height: 150px;
+    height: 220px;
     background: url(../img/banner-left.jpg), url(../img/banner-right.jpg);
 
 
@@ -345,7 +419,7 @@ a.button3:hover {
 /* ТАБЛИЦА НИЖНЕЙ ШАПКИ*/
 table {
 
-    padding-right: 250px;
+    padding-right: 320px;
     margin: -36px;
     display: table;
     border-collapse: separate;
@@ -360,6 +434,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
+
        margin: 0px;
 }
 

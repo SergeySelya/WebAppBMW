@@ -5,10 +5,11 @@ from . import views
 urlpatterns = [
     # главное меню
     path('', views.main, name='main'),
-    path('form', views.form1, name='form'),
+    path('form/', views.form1, name='form'),
     path('personalAccount/', views.personalAccount, name='personalAccount'),
-    path('contact/', views.contact_view, name='contact'),
-    path('success/', views.success_view, name='success'),
+    # path('message/', views.message, name='message'),
+
+
 
     # страница авторизации и регистрации
     path('register/', views.registerPage, name="register"),
