@@ -12,8 +12,8 @@ class ArticlesForm(ModelForm):
         fields = ['name', 'tel']
 
         widgets = {
-            "name": TextInput(attrs={'placeholder': 'имя'}),
-            "tel": TextInput(attrs={'placeholder': 'телефон'})
+            "name": TextInput(attrs={'placeholder': ''}),
+            "tel": TextInput(attrs={'placeholder': ''})
         }
 
 

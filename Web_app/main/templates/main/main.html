@@ -5,23 +5,29 @@
 <link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 {% endblock %}
 {% block body %}
+
 <!--        Окно сообщения о отправленной заявке-->
+
 <div class="messages">
                 {% if var == 1 %}
-                    <div class="n-success">
-    	                <p>Ваша заявка одобрена , наш оператор свжется с вами в ближайшее время!</p>
+                    <div class="notif notif-color-3">
+                    <p>Ваша заявка оставлена.<br>Мы свяжемся с вами!<p>
+
+                    <div class="notif-progress"></div>
+
                     </div>
+
 
                 {%else%}
 
                 {% endif %}
 </div>
 
-<!--        Кнопка скролла вверх-->
-        <div><a href="#top" class="idTop"></a></div>
 <!--        КОНТЕЙНЕР ВЕРХНЕЙ ШАПКИ-->
+<div class="header">
+        <header id="top" >
 
-        <header id="top">
+
             <div class="column-left">
                 <img class="brend-title" src="/static/main/img/logo.png" alt="сергей">
             </div>
@@ -45,30 +51,43 @@
 
             </div>
         </header>
-
+</div>
 <!--        КОНТЕЙНЕР Телефон -->
-<a href="#register" class="button3" >Мы свяжемся с вами!</a>
+
+<div type="button" class="callback-bt" >
+    <div class="text-call">
+        <i class="fa fa-phone"></i>
+        <a href="#register"><br>Заказать<br>звонок</a>
+    </div>
+</div>
 
 <div id="register" class="modalDialog">
 	<div>
 		<a href="#close" title="Закрыть" class="close"></a>
 
-        <div class="phone">
+        <div class="center">
+            <h1> Оставьте заявку </h1>
                 <form method="post" action="{% url 'main' %}">
                     {% csrf_token %}
-                    <h1> Оставьте заявку </h1>
-                    <p>мы свяжемся с вами</p>
-                    <div class="input">
-                        {{ form.name }}
-                        {{ form.tel }}
-                        <span>{{ error }}</span>
-                    </div>
-                    <a><button class="button2" type="submit">оставить заявку</button></a>
 
-                </form>
-                {% for message in messages %}
+                    <div class="inputbox">
+                        {{ form.name }}
+                        <span>Имя</span>
+                    </div>
+                    <div class="inputbox">
+                        {{ form.tel }}
+                        <span>Телефон</span>
+                    </div>
+                    <span>{{ error }}</span>
+
+                    <div class="inputbox">
+                        <a><button class="button2" type="submit">Отправить</button></a>
+                    {% for message in messages %}
 					<p id="messages">{{message}}</p>
-				{% endfor %}
+				    {% endfor %}
+                    </div>
+                </form>
+
             </div>
 
 	</div>
@@ -79,57 +98,74 @@
 <!--        КОНТЕЙНЕР НАШИ УСЛУГИ-->
 
     <div id="link1" class="baner-work">
+        <h2 style="text-align:center;font-size:34px" class="font_2"><span>УСЛУГИ</span></h2>
+        <div class="post-wrap">
 
-            <div class="box-title">
-            <a href="{% url 'form' %}">
 
-            <div class="tr-block" style="background: url(/static/main/img/01.jpg) no-repeat;
-        object-fit: cover;" >
+            <div class="post-item">
+            <div class="post-item-wrap">
+            <a href="{% url 'form' %}" class="post-link">
+            <div class="image-wrapper">
+            <img src="/static/main/img/03.png">
+            </div>
+            <div class="text-wrapper">
+            <div class="post-cat">Двигатель:</div>
+            <h3 class="post-title">1. Диагностика <br>  Цена: 30р</h3></h3>
+            <h3 class="post-title">2. Замена масла <br>  Цена: 50р</h3></h3>
+            <h3 class="post-title">3. Комплексное ТО:
+                <br>  * замена масла
+                <br>  * замена маслянного и воздушного фильтра
+                <br>  Цена: 150р</h3>
+            </div>
+            <div class="overlay"></div></a>
+            </div>
+            </div>
 
-                <h2>Раздел: ДВС</h2>
-                <h3>Ремонт двс</h3>
-                <ul>
-                    <li>чистка форсунок</li>
-                    <li>удаление егр</li>
-                    <li>плановое то</li>
-                </ul>
-
-            </div></a>
-
-            <a href="{% url 'form' %}">
-            <div class="tr-block" style="background: url(/static/main/img/02.jpg) no-repeat;
-        object-fit: cover;">
-                <h2>Раздел: ТРАНСМИССИЯ</h2>
-<!--                <img src="static/main/img/s01.jpg" alt="">-->
-                <h3>Ремонт трансмиссии</h3>
-                <ul>
-                    <li>замена сцепления</li>
-                    <li>замена масла в кпп</li>
-                    <li>замена масла в редукторе</li>
-                </ul>
-            </div></a>
-            <a href="{% url 'form' %}">
-            <div class="tr-block" style="background: url(/static/main/img/03.jpg) no-repeat;
-        object-fit: cover;">
-                <h2>Раздел: КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</h2>
-                <h3>Диагностика</h3>
-               <ul>
-                    <li>диагностика всего авто</li>
-                    <li>диагностика отдельных узлов</li>
-                    <li>перепрошивка б.у.</li>
-               </ul>
-            </div></a>
-            <a href="{% url 'form' %}">
-            <div class="tr-block">
-                <h2>Раздел: КУЗОВНОЙ РЕМОНТ</h2>
-                <h3>Кузовной ремонт</h3>
-                <ul>
-                    <li>покраска одного элемента</li>
-                    <li>полировка фар</li>
-                    <li>полировка кузова</li>
-                </ul>
-            </div></a>
+            <div class="post-item">
+                <div class="post-item-wrap">
+                    <a href="{% url 'form' %}" class="post-link">
+                    <div class="image-wrapper">
+                        <img src="/static/main/img/01.png">
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="post-cat">Диагностка</div>
+                        <h3 class="post-title">1. Делаем компьютерную диагностику</h3>
+                        <h3 class="post-title">2. Находим неисправности</h3>
+                        <h3 class="post-title">3. Устраняем поломки</h3>
+                        <h3 class="post-title">С нами у вы чувствуете себя в безопастности.<br>
+                            У нас работают только опытные и высококвалифицирование специалисты</h3>
+                    </div>
+                    <div class="overlay"></div></a>
                 </div>
+            </div>
+
+            <div class="post-item">
+            <div class="post-item-wrap">
+            <a href="{% url 'form' %}" class="post-link">
+            <div class="image-wrapper">
+            <img src="/static/main/img/04.png">
+            </div>
+            <div class="text-wrapper">
+            <div class="post-cat">Photo</div>
+            <h3 class="post-title">Simple photo</h3>
+            </div>
+            <div class="overlay"></div></a>
+            </div>
+            </div>
+            <div class="post-item">
+            <div class="post-item-wrap">
+            <a href="{% url 'form' %}" class="post-link">
+            <div class="image-wrapper">
+            <img src="/static/main/img/02.png">
+            </div>
+            <div class="text-wrapper">
+            <div class="post-cat">Photo</div>
+            <h3 class="post-title">Simple photo</h3>
+            </div>
+            <div class="overlay"></div></a>
+            </div>
+            </div>
+        </div>
     </div>
 
 <!--        КОНТЕЙНЕР О НАС-->

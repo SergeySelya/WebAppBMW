@@ -1,45 +1,413 @@
-/*Окно уведомления после отправки телефона и имени*/
 
-	.n-success{
-	width:100px;
-height:120px;
- position: fixed; /*позиционирование кнопки фиксированное*/
- z-index: 9999; /*отображаем поверх всех элементов*/
- bottom: 20%; /*положение снизу*/
- right: 5%; /*положение справа*/
- opacity: .6; /*прозрачность*/
- padding: 10px; /*внутренние отступы*/
- margin: 5px 15px 15px 5px; /*внешние отступы*/
+/*кнопка звонка*/
 
-    color: #333;
-    border-radius: 2px;
-    background: #fff;
-    font-weight: bold;
-    font-family: Verdana, sans-serif;
-    box-sizing: border-box;
-    border: 2px solid #32a846;
-    color: #32a846;
-
+.callback-bt {
+        background:#38a3fd;
+        border:2px solid #38a3fd;
+        border-radius:50%;
+        box-shadow:0 8px 10px rgba(56,163,253,0.3);
+        cursor:pointer;
+        height:68px;
+        text-align:center;
+        width:68px;
+        position: fixed;
+        right: 5%;
+        bottom: 15%;
+        z-index:999;
+        transition:.3s;
+        -webkit-animation:hoverWave linear 1s infinite;
+        animation:hoverWave linear 1s infinite;
 }
 
-.messages{
-opacity:0; /*Элемент полностью прозрачный (невидимый)*/
-transition: 1s; /*Скорость перехода состояния элемента*/
-animation: show 7s 1; /* Указываем название анимации, её время и количество повторов*/
-animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-animation-delay: 0s; /* Задержка перед началом */
+.callback-bt .text-call{
+text-align:center;
+
+        height:68px;
+        width:68px;
+        border-radius:50%;
+        position:relative;
+        overflow:hidden;
 }
-@keyframes show{
-0%{
-opacity:0;
+
+.callback-bt .text-call span {
+    text-align: center;
+    color:#38a3fd;
+    opacity: 0;
+    font-size: 0;
+        position:absolute;
+        right: 4px;
+        top: 22px;
+    line-height: 14px;
+        font-weight: 600;
+    text-transform: uppercase;
+    transition: opacity .3s linear;
+    font-family: 'montserrat', Arial, Helvetica, sans-serif;
 }
-80%{
-opacity:1;
+
+.callback-bt .text-call:hover span {
+    opacity: 1;
+        font-size: 11px;
+}
+.callback-bt:hover i {
+    display:none;
+}
+
+.callback-bt:hover {
+        z-index:1;
+        background:#fff;
+        color:transparent;
+        transition:.3s;
+}
+.callback-bt:hover i {
+        color:#38a3fd;
+        font-size:40px;
+        transition:.3s;
+}
+.callback-bt i {
+        color:#fff;
+        font-size:34px;
+        transition:.3s;
+        line-height: 66px;transition: .5s ease-in-out;
+}
+
+.callback-bt i  {
+    animation: 1200ms ease 0s normal none 1 running shake;
+        animation-iteration-count: infinite;
+        -webkit-animation: 1200ms ease 0s normal none 1 running shake;
+        -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes hoverWave {
+        0% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 0 rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+}
+40% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 15px rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+}
+80% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 26.7px rgba(56,163,253,0.067)
 }
 100% {
-opacity:0;
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 40px rgba(56,163,253,0.0)
+}
+}@keyframes hoverWave {
+        0% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 0 rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+}
+40% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 15px rgba(56,163,253,0.2),0 0 0 0 rgba(56,163,253,0.2)
+}
+80% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 26.7px rgba(56,163,253,0.067)
+}
+100% {
+        box-shadow:0 8px 10px rgba(56,163,253,0.3),0 0 0 30px rgba(56,163,253,0),0 0 0 40px rgba(56,163,253,0.0)
 }
 }
+
+/* animations icon */
+
+@keyframes shake {
+0% {
+    transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+}
+10% {
+    transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        -webkit-transform: rotateZ(-30deg);
+}
+20% {
+    transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg);
+        -webkit-transform: rotateZ(15deg);
+}
+30% {
+    transform: rotateZ(-10deg);
+        -ms-transform: rotateZ(-10deg);
+        -webkit-transform: rotateZ(-10deg);
+}
+40% {
+    transform: rotateZ(7.5deg);
+        -ms-transform: rotateZ(7.5deg);
+        -webkit-transform: rotateZ(7.5deg);
+}
+50% {
+    transform: rotateZ(-6deg);
+        -ms-transform: rotateZ(-6deg);
+        -webkit-transform: rotateZ(-6deg);
+}
+60% {
+    transform: rotateZ(5deg);
+        -ms-transform: rotateZ(5deg);
+        -webkit-transform: rotateZ(5deg);
+}
+70% {
+    transform: rotateZ(-4.28571deg);
+        -ms-transform: rotateZ(-4.28571deg);
+        -webkit-transform: rotateZ(-4.28571deg);
+}
+80% {
+    transform: rotateZ(3.75deg);
+        -ms-transform: rotateZ(3.75deg);
+        -webkit-transform: rotateZ(3.75deg);
+}
+90% {
+    transform: rotateZ(-3.33333deg);
+        -ms-transform: rotateZ(-3.33333deg);
+        -webkit-transform: rotateZ(-3.33333deg);
+}
+100% {
+    transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+}
+}
+
+@-webkit-keyframes shake {
+0% {
+    transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+}
+10% {
+    transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        -webkit-transform: rotateZ(-30deg);
+}
+20% {
+    transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg);
+        -webkit-transform: rotateZ(15deg);
+}
+30% {
+    transform: rotateZ(-10deg);
+        -ms-transform: rotateZ(-10deg);
+        -webkit-transform: rotateZ(-10deg);
+}
+40% {
+    transform: rotateZ(7.5deg);
+        -ms-transform: rotateZ(7.5deg);
+        -webkit-transform: rotateZ(7.5deg);
+}
+50% {
+    transform: rotateZ(-6deg);
+        -ms-transform: rotateZ(-6deg);
+        -webkit-transform: rotateZ(-6deg);
+}
+60% {
+    transform: rotateZ(5deg);
+        -ms-transform: rotateZ(5deg);
+        -webkit-transform: rotateZ(5deg);
+}
+70% {
+    transform: rotateZ(-4.28571deg);
+        -ms-transform: rotateZ(-4.28571deg);
+        -webkit-transform: rotateZ(-4.28571deg);
+}
+80% {
+    transform: rotateZ(3.75deg);
+        -ms-transform: rotateZ(3.75deg);
+        -webkit-transform: rotateZ(3.75deg);
+}
+90% {
+    transform: rotateZ(-3.33333deg);
+        -ms-transform: rotateZ(-3.33333deg);
+        -webkit-transform: rotateZ(-3.33333deg);
+}
+100% {
+    transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        -webkit-transform: rotateZ(0deg);
+}
+}
+/* конец кнопки звонка */
+
+
+/*Окно уведомления после отправки телефона и имени*/
+
+.notif {
+position: fixed; /*позиционирование кнопки фиксированное*/
+ z-index: 99999; /*отображаем поверх всех элементов*/
+ bottom: 0%; /*положение снизу*/
+ right: 0.5%; /*положение справа*/
+ background: url('../img/top.png') no-repeat; /*фон, можно указать любую картинку*/
+ opacity: .6; /*прозрачность*/
+
+ width: 260px;
+ margin: 0 auto 25px auto;
+ padding: 30px 20px;
+ text-align: left;
+ border-radius: 12px;
+ opacity: 0;
+ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+ filter: alpha(opacity=0);
+ cursor: default;
+ display: none;
+
+}
+
+
+.notif p {
+ text-align: left;
+ font-weight: bold;
+ font-size: 16px;
+ margin: 0;
+
+}
+
+
+.notif p:before {
+
+ text-align: center;
+ border: 3px solid rgba(255, 255, 255, 1);
+ margin-top: -18px;
+ top: 50%;
+ right: 25px;
+ width: 30px;
+ content: '!';
+ font-size: 30px;
+ color: rgba(255, 255, 255, 1);
+ position: absolute;
+ height: 30px;
+ line-height: 30px;
+ border-radius: 50%;
+
+}
+
+
+.notif-progress {
+ width: 0;
+ height: 10px;
+ background: rgba(255,255,255,0.5);
+ position: absolute;
+ bottom: 5px;
+ left: 3%;
+ border-radius: 12px;
+
+}
+
+.notif-color-3{
+ background: #00B16A;
+
+}
+
+
+.notif-color-3 p {
+ color: #FFF;
+
+}
+
+.notif {
+
+ display: block;
+ -webkit-animation: fadeOut 3s linear forwards;
+ -moz-animation: fadeOut 3s linear forwards;
+ -o-animation: fadeOut 3s linear forwards;
+ -ms-animation: fadeOut 3s linear forwards;
+ animation: fadeOut 3s linear forwards;
+
+}
+
+
+.notif .notif-progress {
+ -webkit-animation: runProgress 2s linear forwards 0.7s;
+ -moz-animation: runProgress 2s linear forwards 0.7s;
+ -o-animation: runProgress 2s linear forwards 0.7s;
+ -ms-animation: runProgress 2s linear forwards 0.7s;
+ animation: runProgress 2s linear forwards 0.7s;
+
+}
+
+
+@-webkit-keyframes fadeOut {
+ 0% { opacity: 0; }
+ 10% { opacity: 1; }
+ 90% { opacity: 1; -webkit-transform: translateY(0px);}
+ 99% { opacity: 0; -webkit-transform: translateY(-25px);}
+ 100% { opacity: 0; }
+
+}
+
+
+
+
+@-webkit-keyframes runProgress {
+ 0%{ width: 0%; }
+ 100%{ width: 94%; }
+
+}
+
+
+
+
+
+.notif:nth-child(2) {
+ -webkit-animation-duration: 4s;
+ -moz-animation-duration: 4s;
+ -o-animation-duration: 4s;
+ -ms-animation-duration: 4s;
+ animation-duration: 4s;
+
+ -webkit-animation-delay: 0.2s;
+ -moz-animation-delay: 0.2s;
+ -o-animation-delay: 0.2s;
+ -ms-animation-delay: 0.2s;
+ animation-delay: 0.2s;
+
+}
+
+
+.notif:nth-child(2) .notif-progress {
+ -webkit-animation-duration: 3s;
+ -moz-animation-duration: 3s;
+ -o-animation-duration: 3s;
+ -ms-animation-duration: 3s;
+ animation-duration: 3s;
+
+ -webkit-animation-delay: 0.7s;
+ -moz-animation-delay: 0.7s;
+ -o-animation-delay: 0.7s;
+ -ms-animation-delay: 0.7s;
+ animation-delay: 0.7s;
+
+}
+
+
+.notif:nth-child(3) {
+ -webkit-animation-duration: 9s;
+ -moz-animation-duration: 9s;
+ -o-animation-duration: 9s;
+ -ms-animation-duration: 9s;
+ animation-duration: 9s;
+
+ -webkit-animation-delay: 0.4s;
+ -moz-animation-delay: 0.4s;
+ -o-animation-delay: 0.4s;
+ -ms-animation-delay: 0.4s;
+ animation-delay: 0.4s;
+
+}
+
+
+.notif:nth-child(3) .notif-progress {
+ -webkit-animation-duration: 7.5s;
+ -moz-animation-duration: 7.5s;
+ -o-animation-duration: 7.5s;
+ -ms-animation-duration: 7.5s;
+ animation-duration: 7.5s;
+
+ -webkit-animation-delay: 0.9s;
+ -moz-animation-delay: 0.9s;
+ -o-animation-delay: 0.9s;
+ -ms-animation-delay: 0.9s;
+ animation-delay: 0.9s;
+
+}
+
+
+
 
 /*карты*/
 .map {
@@ -94,89 +462,23 @@ h2 {
 .phone form{
   }
 
-/* анимация услуг*/
-.box-title{
-
-}
-
-.tr-block {
-
-        text-align: left;
-        position: relative;
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-        width: 434px;
-        min-height: 171px;
-
-
-        background-color: #CEE0AD;
-        color: #030202fd;
-        padding:12px;
-
-        margin: 29px;
-        border: 2px solid #ccc;
-        outline: 2px solid #ccc;
-        outline-offset: 3px;
-        overflow: hidden;
-    }
-.tr-block h2 {
-       position: absolute;
-       color: #1c1c1cfd;
-       text-shadow: 1px 1px 1px #fbfbfb;
-       transition: opacity .4s cubic-bezier(.29, -0.32, .68, .41);
-    }
-.tr-block:hover h2 { opacity: 0;  }
-.tr-block h3 {
-       color: #1c1c1cfd;
-       transform: translate(-110%);
-       transition: transform .5s;
-    }
-.tr-block:hover h3 {
-       transform: translate(0);
-    }
-.tr-block ul {
-       text-align:left;
-       line-height: 1.4;
-       opacity: 0;
-       transform: translateY(110%);
-       transition: .5s .3s;
-    }
-.tr-block:hover ul {
-       transform: translate(0);
-       opacity: 1;
-    }
-/*Кнопка скролла вверх*/
-a.idTop {
-width:48px;
-height:48px;
- position: fixed; /*позиционирование кнопки фиксированное*/
- z-index: 9999; /*отображаем поверх всех элементов*/
- bottom: 7%; /*положение снизу*/
- right: 0%; /*положение справа*/
- background: url('../img/top.png') no-repeat; /*фон, можно указать любую картинку*/
- opacity: .6; /*прозрачность*/
- color: #fff; /*цвет текста*/
- padding: 10px; /*внутренние отступы*/
- margin: 5px 15px 15px 5px; /*внешние отступы*/
-}
-a.idTop:hover {
- opacity: 1;
-}
-
 /*ВЕРХНЯЯ ШАПКА*/
 .column-left{ float: left; width: 20%; text-align: center}
 .column-right{ float: right; width: 20%; text-align: center;padding-top: 27px;}
 .column-center{ display: inline-block; width: 60%; text-align: center}
 
-header{
-    margin: 0;
-    height: 100px;
+
+
+.header header{
+    width:100%;
+    height: 709px;
     font-family: Arial;
     font-size: 18px;
-    background: url(../img/banner-left.jpg) no-repeat left top, url(../img/banner-right.jpg) no-repeat right top;
+    background: url(../img/main.jpg);
+    background-size:cover;
 
 }
+
 /*Значок бмв в шапке*/
 .brend-title{
     margin: 15px 90px;
@@ -188,12 +490,11 @@ header{
     width: auto;
     font-size: 25px;
     padding-top: 28px;
-
-
 }
 
+
 .nav_link{
-    margin-right: 50px;
+    margin-right: 100px;
     color: rgb(11, 11, 13);
     text-decoration: none
 
@@ -216,28 +517,23 @@ header{
   outline: none;
   box-shadow: 0 0 0 4px #cbd6ee;
 }
-
+.menu-title a{
+  font-size:27px;
+  padding: 20px 0px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease; /* Время изменения цвета */
+}
+.menu-title a:hover{
+  color: #fff; /* Меняем цвет ссылки */
+}
 
 /*КОНТЕЙНЕР Телефон*/
 
-.button3 {
-
-    position: fixed; /*позиционирование кнопки фиксированное*/
-    z-index: 9999; /*отображаем поверх всех элементов*/
-    bottom: 0%; /*положение снизу*/
-    right: 0%; /*положение справа*/
-    background: #7DBA13; /*фон, можно указать любую картинку*/
-    opacity: .6; /*прозрачность*/
-    color: black; /*цвет текста*/
-    padding: 10px; /*внутренние отступы*/
-    margin: 5px 15px 15px 5px; /*внешние отступы*/
-}
-a.button3:hover {
- opacity: 1;
-}
 .modalDialog {
 	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
+
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -256,15 +552,20 @@ a.button3:hover {
 }
 
 .modalDialog > div {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+  font-family: "Sansita Swashed", cursive;
 	width: 400px;
 	position: relative;
-	margin: 10% auto;
+	margin: 5% auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
-	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
+
+
 }
 .close {
     top: -10px;
@@ -297,7 +598,7 @@ a.button3:hover {
     color: rgba(255, 255, 255, 0.9);
     content: "X";
     text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .close:hover {
@@ -309,77 +610,178 @@ a.button3:hover {
     transform: rotate(360deg);
  }
 
-
-
-
-.phone{
-    display: block;
-    width: 390px;
-    padding-top: 30px;
-
+.center {
+  position: relative;
+  padding: 50px 50px;
+  background: #fff;
+  border-radius: 10px;
 }
-.phone h1{
-    font-size: 20px;
-    text-align: center;
-
+.center h1 {
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
 }
-.phone p{
-    font-size: 15px;
-    text-align: center;
-    margin: 0px 0px 30px;
-}
-.input {
-    display: inline;
-    padding-right: 20px;
-	width: 300px;
-	font-size: 15px;
-	padding: 10px 27px 12px;
-	border: 1px solid #cecece;
-	background: #F6F6f6;
-	border-radius: 14px;
+.center .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 50px;
 }
 
-.button2{
-    font-family: 'Dosis', sans;
-    color: rgb(11, 11, 13);
-    font-size: 22px;
-    width: auto;
-    margin: 32px 112px 8px;
-    background-color: #939ac1;
-    border-radius: 5px;
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
 }
+.center .inputbox:last-child {
+  margin-bottom: 0;
+}
+.center .inputbox span {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+.center .inputbox input:focus ~ span,
+.center .inputbox input:valid ~ span {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1em;
+}
+.center .inputbox [type="submit"] {
+border-radius: 10px;
+height: 83%;
+  width: 50%;
+  background: dodgerblue;
+  color: #fff;
+  border: #fff;
+}
+.center .inputbox:hover [type="submit"] {
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
 
 /*КОНТЕЙНЕР НАШИ УСЛУГИ*/
 
 .baner-work{
 
-    width: 1100px;
-    height: 550px;
-    margin: 0px 15%;
-    padding-top: 50px;
-    padding-bottom: 100px;
-
+    width: auto;
+    height: 330px;
+    margin: 3% 103px;
 
 }
-.img{
-    width:100%;
-}
-.cont-1 {
-
-    margin-top: 30px;
-    margin-right: 50px;
-    height: 100px;
-    display: inline-block;
-    text-align: center;
-
+.baner-work h2{
+    font-size: 35px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 20px;
 }
 
+* {
+   margin: 0;
+   box-sizing: border-box;
+}
+
+.post-wrap {
+   max-width: 1120px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   flex-wrap: nowrap;
+   align-items: center;
+}
+.post-item {
+   padding: 10px;
+}
+.post-link {
+   text-decoration: none;
+   display: block;
+}
+.post-item-wrap {
+   overflow: hidden;
+   position: relative;
+}
+.post-item img {
+   display: block;
+   width: 100%;
+
+}
+.text-wrapper {
+   position: absolute;
+   display: flex;
+   justify-content: flex-end;
+   flex-direction: column;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   width: 86%;
+   padding: 20px;
+   background: #FFEFD7;
+   transform: translate3d(-100%, 0, 0);
+   transition: transform .5s cubic-bezier(.33, .02, 0, .93);
+}
+.post-item:hover .text-wrapper {
+   transform: translate3d(0, 0, 0);
+   transition: transform .5s cubic-bezier(.33, .02, 0, .93) .3s;
+}
+.overlay {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 5;
+   background: #D1AFA6;
+   transform: translate3d(-100%, 0, 0);
+   transition: transform .4s cubic-bezier(.33, .02, 0, .93) .2s;
+}
+.post-item:hover .overlay {
+   transform: translate3d(0, 0, 0);
+   transition: transform .5s cubic-bezier(.33, .02, 0, .93);
+}
+.post-cat {
+   text-transform: uppercase;
+   margin-bottom: 5px;
+   color: #000200;
+   font-weight: 500;
+}
+.post-title {
+   font-size: 12px;
+   font-weight: 400;
+   color: #4A4A40;
+   font-style: italic;
+}
+@media (min-width: 768px) {
+   .post-item {
+      flex-basis: 50%;
+      flex-shrink: 0;
+   }
+}
+@media (min-width: 960px) {
+   .post-item {
+      flex-basis: 33.333333333%;
+   }
+}
 
 
 /*Контейнер О НАС*/
 
 .baner-txt{
-    margin: 0px 90px;
+    margin: 0px 90px 50px 90px;
     width: auto;
 
 }
@@ -435,6 +837,5 @@ html{
 }
 body{
 
-       margin: 0px;
 }
 

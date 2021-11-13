@@ -1,3 +1,11 @@
+header{
+
+     margin: 0;
+    height: 100px;
+    font-family: Arial;
+    font-size: 18px;
+    background: url(../img/banner-left.jpg) no-repeat left top, url(../img/banner-right.jpg) no-repeat right top;
+}
 /*Описание блока заполнения заявки*/
     .form1{
         height: auto;
