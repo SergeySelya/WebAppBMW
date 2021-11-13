@@ -121,15 +121,10 @@ def main(request):
     }
     return render(request, 'main/main.html', data)
 
-#Окно сообщения
-# def message(request):
-#     form = ArticlesForm(request.POST)
-#     if form.is_valid():
-#         messages.info(request, 'Ваша заявка одобренно, с вами свяжется наш менеджер!')
-#         return render(request, 'main/main.html', {'var': 1})
-#     else:
-#         messages.info(request, 'Форма была неверной')
-#         return redirect('http://127.0.0.1:8000/#register')
+#Окно записи на услугу 1
+#Окно записи на услугу 2
+#Окно записи на услугу 3
+#Окно записи на услугу 4
 
 # запись на услугу
 def form1(request):

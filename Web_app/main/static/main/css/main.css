@@ -1,4 +1,20 @@
-
+/*Кнопка скролла вверх*/
+a.idTop {
+width:48px;
+height:48px;
+ position: fixed; /*позиционирование кнопки фиксированное*/
+ z-index: 9999; /*отображаем поверх всех элементов*/
+ bottom: 7%; /*положение снизу*/
+ right: 0%; /*положение справа*/
+ background: url('../img/top.png') no-repeat; /*фон, можно указать любую картинку*/
+ opacity: .6; /*прозрачность*/
+ color: #fff; /*цвет текста*/
+ padding: 10px; /*внутренние отступы*/
+ margin: 5px 15px 15px 5px; /*внешние отступы*/
+}
+a.idTop:hover {
+ opacity: 1;
+}
 /*кнопка звонка*/
 
 .callback-bt {
@@ -722,7 +738,7 @@ height: 83%;
 .text-wrapper {
    position: absolute;
    display: flex;
-   justify-content: flex-end;
+   justify-content: center;
    flex-direction: column;
    height: 100%;
    top: 0;
@@ -730,7 +746,8 @@ height: 83%;
    z-index: 10;
    width: 86%;
    padding: 20px;
-   background: #FFEFD7;
+   background: linear-gradient(to right,#DBDBDC,#B0C9C9);
+
    transform: translate3d(-100%, 0, 0);
    transition: transform .5s cubic-bezier(.33, .02, 0, .93);
 }
@@ -745,7 +762,7 @@ height: 83%;
    top: 0;
    left: 0;
    z-index: 5;
-   background: #D1AFA6;
+   background:#B0C9C9;
    transform: translate3d(-100%, 0, 0);
    transition: transform .4s cubic-bezier(.33, .02, 0, .93) .2s;
 }
@@ -757,11 +774,11 @@ height: 83%;
    text-transform: uppercase;
    margin-bottom: 5px;
    color: #000200;
-   font-weight: 500;
+   font-weight: 700;
 }
 .post-title {
-   font-size: 12px;
-   font-weight: 400;
+   font-size: 16px;
+   font-weight: 500;
    color: #4A4A40;
    font-style: italic;
 }
