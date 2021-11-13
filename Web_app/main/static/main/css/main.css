@@ -1,10 +1,11 @@
 /*Кнопка скролла вверх*/
 a.idTop {
+
 width:48px;
 height:48px;
  position: fixed; /*позиционирование кнопки фиксированное*/
  z-index: 9999; /*отображаем поверх всех элементов*/
- bottom: 7%; /*положение снизу*/
+ bottom: 55%; /*положение снизу*/
  right: 0%; /*положение справа*/
  background: url('../img/top.png') no-repeat; /*фон, можно указать любую картинку*/
  opacity: .6; /*прозрачность*/
@@ -34,6 +35,13 @@ a.idTop:hover {
         -webkit-animation:hoverWave linear 1s infinite;
         animation:hoverWave linear 1s infinite;
 }
+
+.text-call a{
+    font-family: Arial;
+    font-size:14px;
+    text-decoration: none
+}
+
 
 .callback-bt .text-call{
 text-align:center;
