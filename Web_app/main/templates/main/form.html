@@ -28,13 +28,25 @@
             </div>
 </header>
 <!--        КОНТЕЙНЕР формы-->
-        <div class="form1">
-            <form method="post">
+        <div class="page">
+            <form method="post" action="{% url 'main' %}">
                 {% csrf_token %}
                 <div>
                         <input type="hidden" name="login" value="{{ request.user.id }}" />
-                        {{ form.name }}<br><br>
-                        {{ form.tel }}<br><br>
+                        <label class="field field_v1">
+                            {{ form.name }}
+                            <span class="field__label-wrap">
+                                <span class="field__label">Имя</span>
+                            </span>
+                        </label>
+
+                      <label class="field field_v2">
+                          {{ form.tel }}
+                          <span class="field__label-wrap">
+                            <span class="field__label">Телефон</span>
+                          </span>
+                      </label>
+
 <!--                        {{ form.type_work }}<br><br>-->
                         {% if type == 1 %}
                             <select name="type_work" value="{{ form.type_work }}">
@@ -42,36 +54,47 @@
                                 <option value="2">Плановое ТО</option>
                                 <option value="3">Ходовая часть и трансмиссия</option>
                                 <option value="4">Кузовной ремонт</option>
-                            </select><br><br>
+                            </select>
                         {% elif type == 2 %}
                             <select name="type_work" value="{{ form.type_work }}">
                                 <option value="1">ДВС</option>
                                 <option selected="selected"  value="2">Плановое ТО</option>
                                 <option value="3">Ходовая часть и трансмиссия</option>
                                 <option value="4">Кузовной ремонт</option>
-                            </select><br><br>
+                            </select>
                         {% elif type == 3 %}
                             <select name="type_work" value="{{ form.type_work }}">
                                 <option value="1">ДВС</option>
                                 <option value="2">Плановое ТО</option>
                                 <option value="3">Ходовая часть и трансмиссия</option>
                                 <option selected="selected" value="4">Кузовной ремонт</option>
-                            </select><br><br>
+                            </select>
                         {% elif type == 4 %}
                             <select name="type_work" value="{{ form.type_work }}">
                                 <option value="1">ДВС</option>
                                 <option value="2">Плановое ТО</option>
                                 <option selected="selected" value="3">Ходовая часть и трансмиссия</option>
                                 <option value="4">Кузовной ремонт</option>
-                            </select><br><br>
+                            </select>
                         {% endif %}
 
+                      <label class="field field_v3">
+                          {{ form.date }}
+                          <span class="field__label-wrap">
+                            <span class="field__label">Дата</span>
+                          </span>
+                      </label>
 
-                        {{ form.date }}<br><br>
-                        {{ form.time }}<br><br>
+                       <label class="field field_v3">
+                          {{ form.time }}
+                          <span class="field__label-wrap">
+                            <span class="field__label">Время</span>
+                          </span>
+                      </label>
+
                         <span>{{ error }}</span>
                 </div>
-                <button class="btn-success" type="submit">Отправить заявку</button>
+                <button class="button5" type="submit">Отправить заявку</button>
 <!--                <input type="text" placeholder="Имя" class="form-controll"><br><br>-->
 <!--                <input type="tel" placeholder="Телефон" class="form-controll"><br><br>-->
 <!--                <textarea placeholder="Дополнительно" class="form-controll"></textarea><br>-->

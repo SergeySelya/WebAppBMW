@@ -20,18 +20,17 @@ class ArticlesForm(ModelForm):
 
 
 class ServiceFormForm(ModelForm):
-    # date=forms.DateField(widget=DateInput(format=('%d-%m-%Y'), attrs={'class': 'datepicker', 'type': 'date'}))
     class Meta:
         model = ServiceForm
         fields = ['login', 'name', 'tel', 'type_work', 'date', 'time']
 
         widgets = {
             # "login": TextInput(attrs={'placeholder': 'логин'}),
-            "name": TextInput(attrs={'placeholder': 'имя', 'class': 'input'}),
-            "tel": TextInput(attrs={'placeholder': 'телефон', 'class': 'input'}),
-            "type_work": TextInput(attrs={'placeholder': 'услуга', 'class': 'input'}),
-            "date": DateInput(attrs={'placeholder': 'дата', 'type': 'date', 'class': 'input'}),
-            "time": TimeInput(attrs={'placeholder': 'время', 'type': 'time', 'class': 'input'}),
+            "name": TextInput(attrs={'placeholder': 'Alex', 'class': 'field__input'}),
+            "tel": TextInput(attrs={'placeholder': '375(29)9200719-пример', 'class': 'field__input'}),
+            "type_work": TextInput(attrs={'placeholder': 'услуга', 'class': 'field__input'}),
+            "date": DateInput(attrs={'placeholder': 'дата', 'type': 'date', 'class': 'field__input'}),
+            "time": TimeInput(attrs={'placeholder': 'время', 'type': 'time', 'class': 'field__input'}),
         }
 
 

@@ -12,7 +12,20 @@
     <script src="/static/main/js/main.js"></script>
 </div>
 
-<!--        Окно сообщения о отправленной заявке-->
+<!--&lt;!&ndash;        Окно сообщения о отправленной записи на ремонт&ndash;&gt;-->
+<!--<div class="messages">-->
+<!--                {% if var2 == 2 %}-->
+<!--                    <div class="notif notif-color-3">-->
+<!--                    <p>Вы успешно записались.<br>Информация о записи в личном кабинете<p>-->
+<!--                    <div class="notif-progress"></div>-->
+<!--                    </div>-->
+
+
+<!--                {%else%}-->
+
+<!--                {% endif %}-->
+<!--</div>-->
+<!--        Окно сообщения о отправленной заявке на звонок-->
 
 <div class="messages">
                 {% if var == 1 %}
@@ -20,7 +33,6 @@
                     <p>Ваша заявка оставлена.<br>Мы свяжемся с вами!<p>
                     <div class="notif-progress"></div>
                     </div>
-
 
                 {%else%}
 
