@@ -1,6 +1,7 @@
 {% extends 'main/layout.html' %}
-{% block title %}{% endblock %}
+{% block title %}services{% endblock %}
 {% block head %}
+<link rel="icon" href="https://freefrontend.com/favicon.ico">
 <link rel="stylesheet" href="/static/main/css/form.css">
 <link rel="stylesheet" href="/static/main/css/main.css">
 {% endblock %}
@@ -35,15 +36,39 @@
                         {{ form.name }}<br><br>
                         {{ form.tel }}<br><br>
 <!--                        {{ form.type_work }}<br><br>-->
-                        <select name="type_work" value="{{ form.type_work }}">
-                            <option value="1">ДВС</option>
-                            <option value="2">Трансмиссия</option>
-                            <option value="3">Компьютерная диагностика</option>
-                            <option value="4">Кузовной ремонт</option>
-                        </select><br><br>
+                        {% if type == 1 %}
+                            <select name="type_work" value="{{ form.type_work }}">
+                                <option selected="selected" value="1">ДВС</option>
+                                <option value="2">Плановое ТО</option>
+                                <option value="3">Ходовая часть и трансмиссия</option>
+                                <option value="4">Кузовной ремонт</option>
+                            </select><br><br>
+                        {% elif type == 2 %}
+                            <select name="type_work" value="{{ form.type_work }}">
+                                <option value="1">ДВС</option>
+                                <option selected="selected"  value="2">Плановое ТО</option>
+                                <option value="3">Ходовая часть и трансмиссия</option>
+                                <option value="4">Кузовной ремонт</option>
+                            </select><br><br>
+                        {% elif type == 3 %}
+                            <select name="type_work" value="{{ form.type_work }}">
+                                <option value="1">ДВС</option>
+                                <option value="2">Плановое ТО</option>
+                                <option value="3">Ходовая часть и трансмиссия</option>
+                                <option selected="selected" value="4">Кузовной ремонт</option>
+                            </select><br><br>
+                        {% elif type == 4 %}
+                            <select name="type_work" value="{{ form.type_work }}">
+                                <option value="1">ДВС</option>
+                                <option value="2">Плановое ТО</option>
+                                <option selected="selected" value="3">Ходовая часть и трансмиссия</option>
+                                <option value="4">Кузовной ремонт</option>
+                            </select><br><br>
+                        {% endif %}
+
+
                         {{ form.date }}<br><br>
                         {{ form.time }}<br><br>
-
                         <span>{{ error }}</span>
                 </div>
                 <button class="btn-success" type="submit">Отправить заявку</button>

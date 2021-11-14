@@ -121,19 +121,15 @@ def main(request):
     }
     return render(request, 'main/main.html', data)
 
-#Окно записи на услугу 1
-#Окно записи на услугу 2
-#Окно записи на услугу 3
-#Окно записи на услугу 4
 
-# запись на услугу
+# Окно записи на услугу 1
+
 def form1(request):
     if request.user.is_authenticated:
         error = ''
         if request.method == "POST":
             form = ServiceFormForm(request.POST)
             if form.is_valid():
-                # form.login = request.user
                 form.save()
                 return redirect('main')
             else:
@@ -142,14 +138,88 @@ def form1(request):
         form = ServiceFormForm()
         data = {
             'form': form,
-            'error': error
-
+            'error': error,
+            'type': 1,
         }
         return render(request, 'main/form.html', data)
     else:
         messages.info(request, "Для записи вам необходимо войти в свой личный кабинет!")
         return redirect('login')
 
+
+# Окно записи на услугу 2
+
+def form2(request):
+    if request.user.is_authenticated:
+        error = ''
+        if request.method == "POST":
+            form = ServiceFormForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('main')
+            else:
+                error = "Форма была неверной"
+
+        form = ServiceFormForm()
+        data = {
+            'form': form,
+            'error': error,
+            'type': 2,
+        }
+        return render(request, 'main/form.html', data)
+    else:
+        messages.info(request, "Для записи вам необходимо войти в свой личный кабинет!")
+        return redirect('login')
+
+
+# Окно записи на услугу 3
+
+def form3(request):
+    if request.user.is_authenticated:
+        error = ''
+        if request.method == "POST":
+            form = ServiceFormForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('main')
+            else:
+                error = "Форма была неверной"
+
+        form = ServiceFormForm()
+        data = {
+            'form': form,
+            'error': error,
+            'type': 3,
+        }
+        return render(request, 'main/form.html', data)
+    else:
+        messages.info(request, "Для записи вам необходимо войти в свой личный кабинет!")
+        return redirect('login')
+
+
+# Окно записи на услугу 4
+
+def form4(request):
+    if request.user.is_authenticated:
+        error = ''
+        if request.method == "POST":
+            form = ServiceFormForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('main')
+            else:
+                error = "Форма была неверной"
+
+        form = ServiceFormForm()
+        data = {
+            'form': form,
+            'error': error,
+            'type': 4,
+        }
+        return render(request, 'main/form.html', data)
+    else:
+        messages.info(request, "Для записи вам необходимо войти в свой личный кабинет!")
+        return redirect('login')
 
 
 

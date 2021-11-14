@@ -1,21 +1,52 @@
-/*Кнопка скролла вверх*/
-a.idTop {
+#myBtn {
+    display: none;
+    position: fixed;
+    width: 55px;
+    bottom: 15px;
+    left: 15px;
+    z-index: 99;
+    color: #ffeaa7;
+    padding: 8px;
+    font-size: 12px;
+    background: #1f2029;
+    border: 1px solid #1f2029;
+    border-radius: 3px;
+    text-transform: lowercase;
+    text-align: center;
+    line-height: 12px;
+    cursor: pointer;
+    transition: .2s;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.btn a {
+    color: var(--primary);
+    text-decoration: none;
+}
+* {
+    scrollbar-color: #ffeaa7 #1f2029;
+    scrollbar-width: thin;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
-width:48px;
-height:48px;
- position: fixed; /*позиционирование кнопки фиксированное*/
- z-index: 9999; /*отображаем поверх всех элементов*/
- bottom: 55%; /*положение снизу*/
- right: 0%; /*положение справа*/
- background: url('../img/top.png') no-repeat; /*фон, можно указать любую картинку*/
- opacity: .6; /*прозрачность*/
- color: #fff; /*цвет текста*/
- padding: 10px; /*внутренние отступы*/
- margin: 5px 15px 15px 5px; /*внешние отступы*/
+html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
 }
-a.idTop:hover {
- opacity: 1;
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #1f2029;
+    border-radius: 20px;
+    border-left: 1px solid #ffeaa7;
+}
+
 /*кнопка звонка*/
 
 .callback-bt {
@@ -37,7 +68,7 @@ a.idTop:hover {
 }
 
 .text-call a{
-    font-family: Arial;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size:14px;
     text-decoration: none
 }
