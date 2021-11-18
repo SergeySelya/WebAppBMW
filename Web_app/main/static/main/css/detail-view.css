@@ -1,14 +1,35 @@
-
+h2{
+font-size: 28px
+}
+.button1{
+margin: 4% 0% 4% 13%;
+}
+.tab{
+margin-bottom:10px;
+margin-top: 10px;
+margin-left:40px;
+}
+.column-center{
+margin-top:25px;
+}
 .blockInfo{
     text-align: center;
 }
 .serviceInfo {
-    margin-left: 38%;
-    width: 300px;
+    margin:1% 0% 4% 33%;
+    width: 400px;
     height: auto;
-    background: #bfc4c7;
+    background: #EEEDED;
     outline: 2px solid #000;
     border: 3px solid #fff;
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
+
     }
+
+
+.tab{
+margin-bottom:10px;
+margin-top: 10px;
+margin-left:40px;
+}

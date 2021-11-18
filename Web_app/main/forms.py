@@ -25,7 +25,7 @@ class ServiceFormForm(ModelForm):
         fields = ['login', 'name', 'tel', 'type_work', 'date', 'time']
 
         widgets = {
-            # "login": TextInput(attrs={'placeholder': 'логин'}),
+            "login": TextInput(attrs={'placeholder': 'логин'}),
             "name": TextInput(attrs={'placeholder': 'Alex', 'class': 'field__input'}),
             "tel": TextInput(attrs={'placeholder': '375(29)9200719-пример', 'class': 'field__input'}),
             "type_work": TextInput(attrs={'placeholder': 'услуга', 'class': 'field__input'}),

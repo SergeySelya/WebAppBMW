@@ -29,7 +29,7 @@
 </header>
 <!--        КОНТЕЙНЕР формы-->
         <div class="page">
-            <form method="post" action="{% url 'main' %}">
+            <form method="post">
                 {% csrf_token %}
                 <div>
                         <input type="hidden" name="login" value="{{ request.user.id }}" />
@@ -48,35 +48,40 @@
                       </label>
 
 <!--                        {{ form.type_work }}<br><br>-->
-                        {% if type == 1 %}
+
+                        {% if type == 1 or form.type_work == "1" %}
                             <select name="type_work" value="{{ form.type_work }}">
-                                <option selected="selected" value="1">ДВС</option>
-                                <option value="2">Плановое ТО</option>
-                                <option value="3">Ходовая часть и трансмиссия</option>
-                                <option value="4">Кузовной ремонт</option>
+                                <option selected="selected" value="ДВС">ДВС</option>
+                                <option value="Плановое ТО">Плановое ТО</option>
+                                <option value="Ходовая часть и трансмиссия">Ходовая часть и трансмиссия</option>
+                                <option value="Кузовной ремонт">Кузовной ремонт</option>
                             </select>
                         {% elif type == 2 %}
                             <select name="type_work" value="{{ form.type_work }}">
-                                <option value="1">ДВС</option>
-                                <option selected="selected"  value="2">Плановое ТО</option>
-                                <option value="3">Ходовая часть и трансмиссия</option>
-                                <option value="4">Кузовной ремонт</option>
+                                <option value="ДВС">ДВС</option>
+                                <option selected="selected"  value="Плановое ТО">Плановое ТО</option>
+                                <option value="Ходовая часть и трансмиссия">Ходовая часть и трансмиссия</option>
+                                <option value="Кузовной ремонт">Кузовной ремонт</option>
                             </select>
                         {% elif type == 3 %}
                             <select name="type_work" value="{{ form.type_work }}">
-                                <option value="1">ДВС</option>
-                                <option value="2">Плановое ТО</option>
-                                <option value="3">Ходовая часть и трансмиссия</option>
-                                <option selected="selected" value="4">Кузовной ремонт</option>
+                                <option value="ДВС">ДВС</option>
+                                <option value="Плановое ТО">Плановое ТО</option>
+                                <option selected="selected" value="Ходовая часть и трансмиссия">Ходовая часть и трансмиссия</option>
+                                <option value="Кузовной ремонт">Кузовной ремонт</option>
                             </select>
                         {% elif type == 4 %}
                             <select name="type_work" value="{{ form.type_work }}">
-                                <option value="1">ДВС</option>
-                                <option value="2">Плановое ТО</option>
-                                <option selected="selected" value="3">Ходовая часть и трансмиссия</option>
-                                <option value="4">Кузовной ремонт</option>
+                                <option value="ДВС">ДВС</option>
+                                <option value="Плановое ТО">Плановое ТО</option>
+                                <option value="Ходовая часть и трансмиссия">Ходовая часть и трансмиссия</option>
+                                <option selected="selected" value="Кузовной ремонт">Кузовной ремонт</option>
                             </select>
+                        {% else %}
+                            <output>{{ form.type_work }}</output>
+
                         {% endif %}
+
 
                       <label class="field field_v3">
                           {{ form.date }}

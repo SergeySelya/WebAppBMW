@@ -40,11 +40,11 @@
 </header>
 <!--        КОНТЕЙНЕР формы-->
         <div class="serviceInfo">
-            <h1>{{ service.name }}</h1><br>
-            <p>{{ service.tel }}</p><br>
-            <p>{{ service.type_work }}</p><br>
-            <p>{{ service.date }}</p><br>
-            <p>{{ service.time }}</p><br>
+            <a>Имя:</a><h2 class="tab">{{ service.name }}</h2><br>
+            <a>Телефон:</a><h2 class="tab">{{ service.tel }}</h2><br>
+            <a>Вид работ:</a><h2 class="tab">{{ service.type_work }}</h2><br>
+            <a>Запись на дату:</a><h2 class="tab">{{ service.date }}</h2><br>
+            <a>Запись на время:</a><h2 class="tab">{{ service.time }}</h2><br>
             <a href="{% url 'updateInfo' service.id %}"><button class="button1">редактировать</button></a>
             <a href="{% url 'deleteInfo' service.id %}"><button class="button1">удалить</button></a>
         </div>

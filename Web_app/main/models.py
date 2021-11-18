@@ -5,7 +5,7 @@ from django.db import models
 
 class Articles(models.Model):
     name = models.CharField('Имя', max_length=10, default="")
-    tel = models.IntegerField('Телефон', max_length=13)
+    tel = models.IntegerField('Телефон')
 
     def __str__(self):
         return self.name

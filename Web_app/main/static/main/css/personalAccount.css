@@ -1,3 +1,14 @@
+.serviceInfo button{
+margin: 4% 37% 4% 37%;
+}
+.tab{
+margin-bottom:10px;
+margin-top: 10px;
+margin-left:40px;
+}
+.column-center{
+margin-top:25px;
+}
 header{
 
      margin: 0;
@@ -9,7 +20,8 @@ header{
 .blockInfo{
     width: 200px;
     height: auto;
-    background: #bfc4c7;
+
+    background: #EEEDED;
     outline: 2px solid #000;
     border: 3px solid #fff;
     border-radius: 10px;
@@ -18,11 +30,13 @@ header{
     float:left;
     clear:both;
     width:400px;
-    margin: 20px 34%;
+    margin: 20px 43%;
     text-align: left;
+
     }
 .serviceInfo {
-    height: 900px;
+    min-height:500px;
+    height: auto;
     width: 1250px;
     text-align: center;
     }
