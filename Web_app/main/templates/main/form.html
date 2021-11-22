@@ -1,7 +1,7 @@
 {% extends 'main/layout.html' %}
 {% block title %}services{% endblock %}
 {% block head %}
-<link rel="icon" href="https://freefrontend.com/favicon.ico">
+<link rel="icon" href="https://freefrontend.com/favicon.ico" xmlns="http://www.w3.org/1999/html">
 <link rel="stylesheet" href="/static/main/css/form.css">
 <link rel="stylesheet" href="/static/main/css/main.css">
 {% endblock %}
@@ -79,7 +79,7 @@
                             </select>
                         {% else %}
                             <output>{{ form.type_work }}</output>
-
+<!--                            <label for="{{ form.type_work }}" ></label>-->
                         {% endif %}
 
 
