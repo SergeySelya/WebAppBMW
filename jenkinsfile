@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //
+                sh 'python manage.py runserver'
             }
         }
         stage('Test') {
             steps {
-                //
+                sh 'pytest'
             }
         }
         stage('Deploy') {
