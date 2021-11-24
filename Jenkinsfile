@@ -1,19 +1,20 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'python manage.py runserver'
+                echo 'Building..'
             }
         }
         stage('Test') {
             steps {
-                sh 'pytest'
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
             steps {
-                //
+                echo 'Deploying....'
             }
         }
     }
