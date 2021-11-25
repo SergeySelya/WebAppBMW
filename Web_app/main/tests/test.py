@@ -1,7 +1,6 @@
-
 from django.test import TestCase
-from .models import ServiceForm, Articles
-from django.contrib.auth import get_user_model
+# from .models import ServiceForm, Articles
+# from django.contrib.auth import get_user_model
 from django.test import Client
 # Python
 from http import HTTPStatus

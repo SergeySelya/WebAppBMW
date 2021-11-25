@@ -25,7 +25,4 @@ class ServiceForm(models.Model):
 
     def get_absolute_url(self):
         return f'/personalAccount/{self.id}/'
-#     переименовывваем название таблицы в панеои администратора
-#     class Meta:
-#         verbose_name = "Заявка"
-#         verbose_name_plural = "Заявки"
+

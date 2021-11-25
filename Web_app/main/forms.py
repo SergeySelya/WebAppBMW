@@ -39,6 +39,7 @@ class ServiceFormForm(ModelForm):
         if instance and instance.pk:
             self.fields['type_work'].disabled = True
 
+
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
